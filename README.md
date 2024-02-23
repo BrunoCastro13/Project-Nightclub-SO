@@ -1,18 +1,17 @@
-# Projeto-Discoteca-SO
+# Project-NightClub-Operating-Systems
 
-Este projeto foi efetuado para a cadeira de Sistemas Operativos, em que foi solicitado para efetuar uma simulação de uma discoteca.
-A discoteca é composta por varias zonas, como por exemplo, pistas de dança, zona de sofás, padaria, pista de karts, mini-golf, etc... (e.g., ver Day After, Viseu.)
+This project was carried out for the Operating Systems course, in which it was requested to simulate a nightclub.
+The nightclub is composed of various areas, such as dance floors, sofa areas, bakery, go-kart track, mini-golf, etc... (e.g., Day After, Viseu.)
 
-Normalmente, cada espaço, por questões de segurança e políticas da discoteca, tem diferentes regras de acesso. Alguns são de acesso livre a todos os utilizadores, outros apenas a utilizadores com privilégios especiais, e ainda, algumas restrições horárias.
-Os utilizadores, após entrarem na discoteca, vão para uma pista de dança específica e podem movimentar-se de pista em pista, ou para outras zonas, ficando em cada uma um determinado tempo. No caso da zona estar lotada, o utilizador deverá esperar ou ir para outra zona ou ainda ir embora da discoteca. Nesta simulação o utilizador deverá, pelo menos aceder (ou tentar) à maioria dos espaços.
-A simulação a implementar pretende avaliar as condições de funcionamento de um equipamento deste género em termos de quantas pessoas pode servir, quais os tempos de espera médios, quantas desistem, entre outros.
+Typically, each space, for safety and club policies reasons, has different access rules. Some are freely accessible to all users, others only to users with special privileges, and still, some have time restrictions.
+Users, after entering the nightclub, go to a specific dance floor and can move from floor to floor, or to other areas, staying in each for a certain time. In the case of a floor being crowded, the user should either wait or go to another area or even leave the nightclub. In this simulation, the user should, at least, try to access the majority of the spaces.
+The simulation to be implemented aims to evaluate the operational conditions of such an establishment in terms of how many people it can serve, average wait times, how many give up, among other factors.
 
-**Arquitetura:**
-O sistema desenvolvido contem duas aplicações, a primeira (Simulador) que efetua toda a simulação, e a segunda (Monitor) que receberá todas as mensagens enviadas pela primeira e efetua todo o seu tratamento.
+**Architecture:**
+The developed system contains two applications: the first one (Simulator) performs the entire simulation, and the second one (Monitor) receives all messages sent by the first one and processes them.
 
-O Simulador gera aleatoriamente a chegada dos utilizadores (cada utilizador é um thread) aos recursos, que permite a correta coordenação e sicronização por vias de semáforos) e envia mensagens para o Monitor (comunicação via sockets)
+The **Simulator** randomly generates the arrival of users (each user is a **thread**) to resources, allowing proper coordination and synchronization through **semaphores**, and sends messages to the Monitor (communication via **sockets**).
 
-O Monitor aceita uma ligação de um Simulador e guarda em ficheiro todo o registo enviado por este.
-O tratamento de dados da simulação acontece ao nível do Monitor (cálculo da média de tempo à espera, por exemplo).
-Durante o funcionamento do Monitor é apresentado dados sobre o seu estado de execução.
+The **Monitor** accepts a connection from a Simulator and saves all the logs sent by it into a file. Data processing of the simulation occurs at the Monitor level (calculating the average waiting time, for example).
+During the operation of the Monitor, data about its execution status is displayed.
 
